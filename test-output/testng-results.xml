@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-06-25T18:56:32 IST" name="Default suite" finished-at="2025-06-25T18:56:55 IST" duration-ms="22940">
+  <suite started-at="2025-06-25T20:36:39 IST" name="Default suite" finished-at="2025-06-25T20:36:49 IST" duration-ms="9833">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.testRunner@221a3fa4]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.testRunner@6b695b06]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-06-25T18:56:32 IST" name="Default test" finished-at="2025-06-25T18:56:55 IST" duration-ms="22940">
+    <test started-at="2025-06-25T20:36:39 IST" name="Default test" finished-at="2025-06-25T20:36:49 IST" duration-ms="9833">
       <class name="TestRunner.testRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:TestRunner.testRunner@221a3fa4]" started-at="2025-06-25T18:56:32 IST" name="setUpClass" finished-at="2025-06-25T18:56:34 IST" duration-ms="1718" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:TestRunner.testRunner@6b695b06]" started-at="2025-06-25T20:36:39 IST" name="setUpClass" finished-at="2025-06-25T20:36:40 IST" duration-ms="860" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@708eb310]]>
+                <![CDATA[org.testng.TestRunner@59fbb34]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.testRunner@221a3fa4]" started-at="2025-06-25T18:56:34 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-25T18:56:55 IST" duration-ms="21075" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.testRunner@6b695b06]" started-at="2025-06-25T20:36:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-06-25T20:36:49 IST" duration-ms="8806" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,10 +34,20 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "com.aventstack.extentreports.ExtentReports.flush()" because "StepDef.Hook.extent" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentReports.flush()" because "StepDef.Hook.extent" is null
+at StepDef.Hook.tearDown(Hook.java:60)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner.testRunner@221a3fa4]" started-at="2025-06-25T18:56:55 IST" name="tearDownClass" finished-at="2025-06-25T18:56:55 IST" duration-ms="48" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner.testRunner@6b695b06]" started-at="2025-06-25T20:36:49 IST" name="tearDownClass" finished-at="2025-06-25T20:36:49 IST" duration-ms="32" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

@@ -21,11 +21,12 @@ public class Reports {
 	public WebDriver driver;
 	public ExtentReports extent;
 	public ExtentTest logger;
+	AppConfiguration properties = new AppConfiguration();
 	
-	ExtentSparkReporter sparkReporter = new ExtentSparkReporter("ExtentReport.html");
 	
 	public Reports() {
 		this.driver = new Driver_Factory().getDriver();
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter("Reports\\ExtentReport.html");
 		this.extent = new ExtentReports();
 		this.extent.attachReporter(sparkReporter);
 		logger = extent.createTest("Login Test").assignAuthor("QA Tester").assignCategory("Smoke Test")
@@ -64,5 +65,30 @@ public class Reports {
 	public void logPasswithScreenshot(String msg) {
 		logPass(msg);
 		getScreenshot();
+	}
+	
+	public String htmlReportPath() {
+		String reportPath = null;
+		String fileName =  new SimpleDateFormat("MM-dd-yyyy_HH-mm-ss aa").format(new GregorianCalendar().getTime());
+		String folderName =  new SimpleDateFormat("MM-dd-yyyy").format(new GregorianCalendar().getTime());
+		//SubFolder Creation with Respect to Batch Execution
+		String subFolderName =  new SimpleDateFormat("MM-dd-yyyy_HHmmssaa").format(new GregorianCalendar().getTime());
+		String subFolder;
+		try {
+			subFolder = properties.getPropValues("reportPath")+ folderName + "\\" + subFolderName;
+			properties.putPropValues("subFolderName", subFolder);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			String reportPath1 = properties.getPropValues("reportPath")+folderName+"\\"+subFolderName+"\\"+fileName+".html";
+			reportPath = reportPath1.replaceAll("\\s+", "");
+			properties.putPropValues("EmailResultPath", reportPath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return reportPath;
 	}
 }
