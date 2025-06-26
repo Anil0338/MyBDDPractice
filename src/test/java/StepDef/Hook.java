@@ -1,14 +1,10 @@
 package StepDef;
 
-import java.io.File;
-import java.nio.file.Paths;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.BeforeSuite;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.model.Report;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import DriveFactory.Driver_Factory;
@@ -21,21 +17,17 @@ public class Hook {
 	public static WebDriver driver;
 	public static ExtentTest logger;
 	public static ExtentReports extent;
+	public static Reports log;
 	
 	@Before
 	public void setUp(Scenario scenario) throws InterruptedException {
 	    
-		/*
-		 * String reportPath = Paths.get(System.getProperty("user.dir"), "Reports",
-		 * "ExtentReport.html").toString(); ExtentSparkReporter sparkReporter = new
-		 * ExtentSparkReporter(reportPath);
-		 * sparkReporter.config().setDocumentTitle("My Automation Report");
-		 * sparkReporter.config().setReportName("Test Results");
-		 * 
-		 * // Attach the reporter to ExtentReports extent = new ExtentReports();
-		 * extent.attachReporter(sparkReporter);
-		 * 
-		 */		System.out.println("Starting scenario: " + scenario.getName());
+		ExtentSparkReporter sparkReporter = new ExtentSparkReporter("Reports\\ExtentReport.html");
+		extent=new ExtentReports();
+		extent.attachReporter(sparkReporter);
+		logger=extent.createTest(scenario.getName());
+		log=new Reports();
+		System.out.println("Starting scenario: " + scenario.getName());
 		Driver_Factory.initializeDriver();
 		driver = Driver_Factory.getDriver();
 		ChromeOptions options = new ChromeOptions();
@@ -56,7 +48,6 @@ public class Hook {
 			e.printStackTrace();
 		}
 		Driver_Factory.quitDriver();
-		
-		  extent.flush();
+		extent.flush();
 	}
 }

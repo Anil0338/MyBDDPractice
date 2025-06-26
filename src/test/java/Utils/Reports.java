@@ -16,37 +16,30 @@ import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import DriveFactory.Driver_Factory;
+import StepDef.Hook;
 
 public class Reports {
 	public WebDriver driver;
-	public ExtentReports extent;
-	public ExtentTest logger;
 	AppConfiguration properties = new AppConfiguration();
-	
+	Hook h1=new Hook();
 	
 	public Reports() {
 		this.driver = new Driver_Factory().getDriver();
-		ExtentSparkReporter sparkReporter = new ExtentSparkReporter("Reports\\ExtentReport.html");
-		this.extent = new ExtentReports();
-		this.extent.attachReporter(sparkReporter);
-		logger = extent.createTest("Login Test").assignAuthor("QA Tester").assignCategory("Smoke Test")
-				.assignDevice("Chrome");
+		
 	}
-
 	
-	
-	
+		
 
 	public void logPass(String msg) {
-		logger.pass(msg);
+		h1.logger.pass(msg);
 	}
 
 	public void logFali(String msg) {
-		logger.fail(msg);
+		h1.logger.fail(msg);
 	}
 
 	public void logMsg(String msg) {
-		logger.info(msg);
+		h1.logger.info(msg);
 	}
 
 	public void getScreenshot() {
