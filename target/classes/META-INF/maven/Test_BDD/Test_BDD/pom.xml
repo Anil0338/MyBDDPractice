@@ -44,16 +44,17 @@
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.7.0</version>
-		</dependency> <dependency>
-        <groupId>tech.grasshopper</groupId>
-        <artifactId>extentreports-cucumber7-adapter</artifactId>
-        <version>1.14.0</version>
-    </dependency><!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
-<dependency>
-    <groupId>com.aventstack</groupId>
-    <artifactId>extentreports</artifactId>
-    <version>5.0.9</version>
-</dependency>
+		</dependency> <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+  			  <groupId>com.aventstack</groupId>
+  			  <artifactId>extentreports</artifactId>
+  			  <version>5.0.9</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.projectlombok</groupId>
+   			<artifactId>lombok</artifactId>
+   			<version>1.18.38</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -64,6 +65,11 @@
 				<configuration>
 					<source>11</source>
 					<target>11</target>
+					 <fork>true</fork>
+ 							   <compilerArgs>
+  								    <arg>--add-opens</arg>
+    							    <arg>jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+   							   </compilerArgs>
 				</configuration>
 			</plugin>
 

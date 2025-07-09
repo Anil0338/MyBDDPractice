@@ -1,5 +1,9 @@
+com\pages\HomePage.class
 com\pages\Login.class
+StepDef\LoginStep.class
+Utils\Reports.class
+Utils\Genaric.class
+Utils\AppConfiguration.class
 DriveFactory\Driver_Factory.class
 StepDef\Hook.class
-StepDef\LoginStep.class
-Utils\Genaric.class
+com\pages\Test.class
